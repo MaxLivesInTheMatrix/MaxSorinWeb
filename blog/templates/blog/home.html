@@ -1,0 +1,101 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="splash-container">
+        <div class="splash-content">
+            <h1 id="typing-text"></h1>
+            <div class="scroll-down">
+                <a href="#about-section">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about-section">
+        <!-- Content after splash screen -->
+        <!-- Add your content here -->
+        <h1>About Me</h1>
+        <div class="about-me">
+            <img src="{% static 'blog/personalPhoto.jpeg' %}" alt="Max Sorin" class="img-fluid">
+            <p> I'm Max Sorin. I'm a passionate software engineer with a customer facing outlook. 
+                I've recently moved to the Bay Area because of a passion for all things tech. My 
+                backgroud includes an electrical engineering bachelors degree from the University
+                of Wisconsin at Milwaukee, and I have 2+ years of experience as a full time embedded 
+                C developer for electric vehicles. 
+                This website was my first attempt at a full stack application using Django, Bootstrap,
+                CSS, HTML, and just a little JavaScript mixed in. In the upper right section of the Nav Bar you can find my professional 
+                social accounts and a contact page to reach out!
+            </p>
+        </div>
+            <!-- Projects section with two columns -->
+    <h1>Projects</h1>
+    <div class="projects">
+        <div class="project-column">
+            <!-- Left column for projects -->
+            <div class="project-item">
+                <h3>Arduino Digital Clutch Slipper</h3>
+                <a href="{% url 'blog-arduino' %}">
+                    <div class="image-container">
+                        <img class="project-image" src="{% static 'blog/Arduino.png' %}" alt="Arduino Project">
+                        <div class="image-overlay"></div>
+                        <p class="image-text">Designed completely from scratch for drag car applications, all the way down to the hardware and software. <br> Swift | C++ | BlueTooth</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Add more projects as needed for the left column -->
+        </div>
+
+        <div class="project-column">
+            <!-- Right column for projects -->
+            <div class="project-item">
+                <h3>Personal Interactive Website</h3>
+                <a href="{% url 'blog-webdev' %}">
+                    <div class="image-container">
+                        <img class="project-image" src="{% static 'blog/webCode.png' %}" alt="Arduino Project">
+                        <div class="image-overlay"></div>
+                        <p class="image-text">Built from the ground up using Django, HTML, CSS, JavaScript, Bootstrap <br> Django | HTML | CSS | JS</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Add more projects as needed for the right column -->
+        </div>
+    </div>
+    <!-- Additional content -->
+    </section>
+
+
+<script>
+    // Smooth scrolling when clicking on the scroll-down arrow
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<script>
+    const text = "Hi, I'm Max Sorin! Click the arrow or scroll to learn more! ";
+    let index = 0;
+    const speed = 50; // Adjust the typing speed (milliseconds)
+
+    function typeWriter() {
+        if (index < text.length) {
+            document.getElementById("typing-text").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    // Start the typing animation when the page loads
+    window.onload = function () {
+        typeWriter();
+    };
+</script>
+
+{% endblock content %}

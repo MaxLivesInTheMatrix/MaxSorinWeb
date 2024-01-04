@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Clickable Resume header linking to download -->
+    <div class="pdf-header">
+        <h1>
+            <a href="{% static 'blog/Resume11.pdf' %}" download="MaxSorinResume">
+                Resume
+                <i class="fas fa-download fa-2xs"></i> <!-- Font Awesome download icon -->
+            </a>
+        </h1>
+    </div>
+    <div class="pdf-container">
+        <!-- Embedding the PDF using an iframe -->
+        <iframe class="pdf-embed" src="{% static 'blog/Resume11.pdf' %}#toolbar=0&navpanes=0&view=FitH" frameborder="0"></iframe>
+    </div>
+{% endblock content %}

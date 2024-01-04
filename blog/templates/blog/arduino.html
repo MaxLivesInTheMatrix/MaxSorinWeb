@@ -1,0 +1,71 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">The Digital Clutch Slipper Project <br> This is still a work in progress!</h1>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card-body text-justify">
+                <h5 class="card-title">Abstract:</h5>
+                    <p class="card-text">   The first 60 feet of a drag race can be the defining moments between winning or losing. As stick shift drag cars become more powerful, their clutches become more aggressive meaning the engagement point is significantly more aggressive and the usability of the clutch pedal is significantly reduced. This makes it extremely difficult to consistently launch a vehicle especially when the nerves kick in on the drag strip. The digital clutch slipper is a mechanical hydraulic solenoid that is controlled via an Arduino and an iPhone app. This device allows completely automated launch control leading to consistent launches every single race. Throughout the paper we will be referencing the chart below multiple times and it will be explained in the next section. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Introduction:</h5>
+                <p class="card-text">Drag racing is a competitive motorsport where every single millisecond counts. It is a race between two high powered cars to see who can cross the finish line, generally a quarter mile away, first. 
+                    Starting from the basics, a manual car is a car with three pedals with the left most pedal being the clutch. In our day and age, the vast majority of cars sold either have some form of automatic transmission, or are electric vehicles with only one gear. The purpose of a clutch in a manual transmission vehicle is to be able to change gears by disengaging the engine from the transmission. It is also needed to get the vehicle rolling from a dead stop which is where we will be focused. The intricacies of how a clutch works is beyond the scope of this project, but the general idea will be conveyed. Figure 1 is a graph and three separate examples of how a clutch might feel and operate. First off, all three clutches have “dead” zones at the very bottom and very top of the range. These dead zones are areas where the position of the pedal has no effect on the clamping force of the clutch. This is to prevent an overly sensitive clutch pedal. Starting with the green “OEM style clutch” we see that the engagement of the clamping force vs pedal position is linear and uses almost the entire range of motion of the pedal. This is to provide a smooth driving experience. The issue with OEM style clutches in drag racing is that they cannot hold up to the immense amount of power that these racecars produce and end up slipping, heating up, and eventually burning up. This is where the race style clutch comes into play. Looking at the orange example, this is a late engaging race style clutch. The clutch begins to engage close to the top of the clutch pedal position, and it engages exponentially. This reduces the usable clutch pedal motion to around 10% of the full range of motion. On top of that, the more aggressive clutch discs provide five to ten times more friction upon engagement which makes it even more difficult to drive. The third, pink, example is an early engaging race clutch in which the clutch engages at the very bottom of the range of motion of the clutch pedal. This again makes it very difficult to drive and even more difficult to launch in a race environment. 
+                    
+                    So, what can we do to make it easier to drive and launch race style clutches? Essentially, we need to increase the amount of time we have in the engagement point (usable pedal) section of the graph. By increasing the amount of time spend in the engagement section, we can launch more consistently. The most common solution is to use a fluid delay valve. When the driver presses or releases the clutch pedal, they are moving hydraulic fluid to and from the master and slave cylinders. The fluid combined with the master/slave cylinders then engages and disengages the clutch. A fluid delay valve will slow the movement of the fluid, thus letting the clutch slip and spend more time in the engagement zone. While this is one solution to the problem, it is naïve and causes other issues. This solution would work for the initial launch only, but when shifting gears we cannot have a delay. When we shift between all other gears, we need the clutch engagement to be fast and aggressive. The simple solution to the fluid delay valve is to add another bypass valve in parallel that will bypass the fluid delay valve in all other gears except the initial launch. In fact, that is the most common solution in modern day stick shift racing. But there is still a superior way to control the launch. The above method is quite analog in which the clutch is slowly dragged through its engagement point. The only thing that is adjustable is the amount how long it takes to actually spend in the engagement point time. We cannot control the clamping force throughout the launch using that device. This is where I had my idea of a digital clutch slipper…
+                    The digital clutch slipper needed to be able to surpass or match the analog fluid delay valve by a few metrics. These metrics included: price, reliability, ease of use, and most importantly, consistency. Consistency was the name of the game when designing the slipper. The high-level design overview of the slipper is instead of using a fluid delay valve, we only use a blocking bypass valve which can be activated and deactivated by a microcontroller to be able to HOLD the clutch pedal in the ideal usable pedal area. The simplest example I can give goes along these lines: 
+                    1.	Let’s assume that it takes one second from releasing the clutch (0%) from its depressed position to a fully engaged clutch (100%)
+                    2.	In figure 1, let’s assume we are using the orange style street clutch
+                    3.	We also need to consider a “sweet spot” for clamping force percentage. This is done by the racer through trial and error, but in this example, we will say 75% clamping force is the ideal amount.
+                    4.	Now that we know it takes one second from 0% to 100%, we can tell the digital clutch slipper to STOP all fluid movement after around .8 seconds and HOLD the clutch in the “sweet spot” for another amount of time determined by the racer and then release to full engagement. 
+                    5.	This will have the car launch every single time consistently and both STOP time and HOLD time are configurable by the racer. Since this is software controlled, after one cycle, the system disengages and allows the clutch to operate normally until the next launch. 
+                    </p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Methodology - HW/SW Design:</h5>
+                <p class="card-text">[Methodology content here]</p>
+            </div>
+        </div>
+
+        <!-- Other sections -->
+
+        <!-- You can use Bootstrap's grid system for layout -->
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Figure 1: Clamping Force vs Pedal Position</h5>
+                <!-- Include your graph or figure here -->
+                <p>[Content regarding Clamping Force vs Pedal Position]</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Figure 2: Hydraulic Clutch System - Eaton</h5>
+                <!-- Include your diagram or figure here -->
+                <p>[Content regarding the Hydraulic Clutch System]</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Hardware for the device includes:</h5>
+                <ul>
+                    <li>Line lock hydraulic solenoid</li>
+                    <li>Arduino</li>
+                    <li>MOS FET</li>
+                    <!-- Other hardware items -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Include your circuit diagram using Bootstrap's grid system or other components -->
+
+    </div>
+{% endblock content %}

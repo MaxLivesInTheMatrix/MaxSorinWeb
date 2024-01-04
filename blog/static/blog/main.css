@@ -1,0 +1,483 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background-color: #6d6d6d;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #ffffff; /* Changes color of Nav bar words */
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+
+/* Existing styles */
+
+/* Add animation for flip effect */
+/* Add the styles for the LeetCode logo */
+.logo-container {
+    display: inline-block;
+    background-color: #5f788a; /* Match the background color of the navbar */
+    padding: 0px; /* Adjust padding as needed */
+    border-radius: 0px; /* Optional: Adds rounded corners to the container */
+    vertical-align: middle; /* Ensure vertical alignment */
+}
+
+.logo-image {
+    width: 28px;
+    height: auto;
+    border-radius: 5px; /* Optional: Adds rounded corners to the image */
+    display: block; /* Ensures the image behaves like a block element */
+    margin: -3px auto 0 auto; /* Adjust the top margin to raise the logo */
+    transition: transform 0.5s ease;
+}
+.logo-container:hover .logo-image {
+    transform: rotate(360deg); /* Apply rotation on hover */
+  }
+
+
+.fa-brands:hover {
+    transform: rotate(360deg);
+    animation-play-state: running; /* Ensure animation continues on hover */
+}
+
+.fa-brands {
+    transition: transform 0.5s ease 0s;
+    animation: rotate360 2s linear forwards;
+}
+
+
+.pdf-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust height as a percentage of the viewport height */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  width: 50%; /* Adjust width as a percentage of the parent container */
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.pdf-embed {
+  width: 100%; /* Make the embedded PDF fill the container */
+  height: 100%; /* Make the embedded PDF fill the container */
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Styles for the splash screen */
+.splash-container {
+    height: calc(100vh + 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; /* Adjust background color */
+    margin-top: -100px;
+    padding-top: 0;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.scroll-down a {
+    display: inline-block;
+    font-size: 36px;
+    color: #bdbdbd; /* Adjust arrow color */
+    transition: transform 0.3s ease-in-out;
+}
+
+.scroll-down a:hover {
+    transform: translateY(5px); /* Adjust arrow movement on hover */
+}
+
+  
+  
+h1 {
+    text-align: center;
+}
+
+.splash-content {
+    text-align: center;
+    position: relative; /* Required for absolute positioning */
+}
+.splash-content h1 {
+    font-size: 3em; /* Change the font size as needed */
+    font-family: 'Courier New', monospace;
+    color: #09b200;
+    /* Add any other styles you want here */
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: -200px; /* Adjust as needed */
+    left: 50%; /* Aligns the arrow to the center */
+    transform: translateX(-50%); /* Centers the arrow horizontally */
+}
+
+
+/* Styles specific to the splash screen */
+.no-top-margin {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Styling for the about me section */
+#about-section {
+    padding-top: 100px; /* Add space above the about me section */
+    padding-bottom: 50px; /* Add space below the about me section */
+    text-align: center;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: row-reverse; /* Reverses the order of the flex items */
+    justify-content: flex-end; /* Aligns flex items to the right */
+    align-items: center; /* Centers items vertically */
+    margin-top: 30px; /* Adjust as needed */
+    padding: 50px; /* Add padding around the content */
+}
+
+.about-me .about-text {
+    flex: 0; /* Take up remaining space */
+    text-align: left; /* Align text to the left */
+    margin-right: 20px; /* Add space between text and image */
+}
+
+
+.about-me img {
+  max-width: 25%; /* Allow the image to be responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 80%; /* Rounded image */
+  margin-right: 5%; /* Adjust margin for smaller screens */
+}
+
+.about-me p {
+    margin-top: 0px; /* Adjust as needed */
+    font-size: 25px; /* Adjust font size as needed */
+    margin-right: 100px; /* Add space between text and image */
+    margin-left: 100px;
+}
+
+
+
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.projects {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-column {
+  flex: 1;
+  margin: 0 10px; /* Adjust the margin between columns */
+  padding: 10px; /* Optional: Add padding for better separation */
+}
+/* CSS for hiding the navbar */
+.navbar {
+  transition: top 0.3s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar.hidden {
+  top: -60px; /* Change this value to the height of your navbar to hide it completely */
+}
+
+/* Navbar font styles */
+.navbar-nav .nav-link {
+  font-family: Optima, sans-serif; /* Change the font family */
+  font-size: 18px; /* Adjust the font size */
+  font-weight: 500; /* Adjust the font weight */
+  color: #ffffff; /* Change the text color */
+}
+
+.navbar-brand {
+  font-family: Optima, sans-serif; /* Change the font family */
+  font-size: 24px; /* Adjust the font size */
+  font-weight: 600; /* Adjust the font weight */
+  color: #ffffff; /* Change the text color */
+}
+
+.footer {
+  background-color: #333333; /* Optional: Add a background color */
+  text-align: center; /* Center align the text */
+  padding: 20px 0; /* Add padding for spacing */
+}
+.footer p {
+  margin: 0; /* Remove default margin */
+  color: #ffffff; /* Change the text color */
+  font-family: Courier New, monospace; /* Change the font family */
+  font-size: 14px; /* Adjust the font size */
+  font-weight: 500; /* Adjust the font weight */
+}
+
+.project-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  display: inline-block;
+  border-radius: 20px; /* Rounded corners */
+  border: 1px solid black; /* Thin black border by default */
+}
+
+.project-image {
+  transition: transform 0.3s, filter 0.3s;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px; /* Rounded corners */
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .75);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 20px; /* Rounded corners */
+}
+
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(246, 235, 155);
+  font-size: 22px;
+  font-family: Courier New, monospace; /* Change the font family */
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center; /* Center-align the text within the image */
+}
+
+
+.image-container:hover .project-image {
+  transform: scale(1.05);
+  filter: brightness(70%);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-container:hover .image-text {
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .about-me {
+      flex-direction: column; /* Stack content in a column on smaller screens */
+      align-items: center; /* Center items vertically */
+  }
+  .about-me img {
+      max-width: 80%; /* Adjust image width for smaller screens */
+      margin-right: 0; /* Remove right margin for the image */
+      margin-bottom: 20px; /* Add spacing between image and text */
+  }
+  .about-me p {
+      font-size: 16px; /* Adjust font size for smaller screens */
+      max-width: 100%; /* Allow text to take full width on smaller screens */
+      margin: 0; /* Reset margin */
+  }
+  .project-column {
+    width: 100%; /* Make columns take full width on smaller screens */
+    margin: 0; /* Remove margin to allow stacking */
+  }
+
+  .projects {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+
+  .project-column {
+    width: 100%; /* Take full width on smaller screens */
+    margin-bottom: 30px; /* Add spacing between columns */
+  }
+
+  .project-item {
+    margin-bottom: 20px; /* Add spacing between project items */
+  }
+
+  .project-item h3 {
+    font-size: 20px; /* Adjust heading font size for smaller screens */
+    margin-bottom: 10px; /* Add spacing between heading and image */
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 20px; /* Rounded corners */
+    border: 1px solid black; /* Thin black border by default */
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .75);
+    opacity: 1; /* Show the overlay by default */
+    transition: opacity 0.3s;
+    border-radius: 20px; /* Rounded corners */
+  }
+
+  .image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(246, 235, 155);
+    font-size:  18px;
+    font-family: Courier New, monospace; /* Change the font family */
+    font-weight: bold;
+    opacity: 1; /* Show the text by default */
+    transition: opacity 0.3s;
+    text-align: center; /* Center-align the text within the image */
+  }
+
+  .image-container:hover .project-image {
+    transform: scale(1.05);
+    filter: brightness(70%);
+  }
+
+  .pdf-header h1 {
+      font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  .pdf-container {
+      height: 70vh; /* Adjust height for smaller screens */
+      width: 90%; /* Adjust width for smaller screens */
+  }
+
+}
+
+
+
+
+
