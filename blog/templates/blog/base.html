@@ -86,7 +86,31 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
     </script>
-
+    <script>
+        // JavaScript function to detect device width
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        }
+    
+        // Function to handle clicking on the Resume link
+        function handleResumeLinkClick(event) {
+            if (isMobileDevice()) {
+                // If it's a mobile device, prevent the default behavior (navigation)
+                event.preventDefault();
+                // Open the PDF directly
+                window.open("{% static 'blog/Resume11.pdf' %}", '_blank');
+            }
+        }
+    
+        // Attach click event handler to the Resume link
+        document.addEventListener("DOMContentLoaded", function() {
+            var resumeLink = document.getElementById("resume-link");
+            if (resumeLink) {
+                resumeLink.addEventListener("click", handleResumeLinkClick);
+            }
+        });
+    </script>
+    
 <!-- ... Rest of your HTML content ... -->
 
     

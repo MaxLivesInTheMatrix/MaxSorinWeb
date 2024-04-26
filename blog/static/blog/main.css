@@ -387,7 +387,7 @@ h1 {
   opacity: 1;
 }
 
-
+/* This section of code makes sure that smaller screens can view the site nicely*/
 @media (max-width: 768px) {
   .about-me {
       flex-direction: column; /* Stack content in a column on smaller screens */

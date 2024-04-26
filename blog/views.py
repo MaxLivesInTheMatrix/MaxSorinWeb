@@ -39,6 +39,9 @@ def arduino(request):
 def webdev(request):
     return render(request, 'blog/webdev.html', {'title' : 'Creation of This Site'} )
 
+def rambo(request):
+    return render(request, 'blog/rambo.html', {'title' : 'Rambo\'s Fountain'})
+
 def send_email(request):
     if request.method == 'POST':
         name = request.POST.get('name')
