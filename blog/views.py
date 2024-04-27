@@ -2,26 +2,12 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from .models import Post
 # Create your views here.
 
-posts = [
-    {
-        'Author' : 'Max',
-        'Title' : 'Test 1',
-        'Content' : 'First Test Now',
-        'Date' : 'Jan 1 2024'
-    },
-    {
-        'Author' : 'Ange',
-        'Title' : 'Test 2',
-        'Content' : 'Second Test Now',
-        'Date' : 'Jan 11 2024'
-    }
-    
-]
 def home(request):
     context = {
-        'posts' : posts
+        'posts' : Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
 

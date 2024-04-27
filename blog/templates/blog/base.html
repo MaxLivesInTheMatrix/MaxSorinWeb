@@ -10,11 +10,11 @@
      <!-- reCAPTCHA -->
      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-     <link rel="icon" type="image/x-icon" href="{% static 'blog/favicon-16x16.png' %}">
- 
+     <link rel="icon" type="image/x-icon" href="{% static 'media/favicon-16x16.png' %}">
+
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <link rel = "stylesheet" type = "text/css" href = "{% static 'blog/main.css' %}">
+     <link rel = "stylesheet" type = "text/css" href = "{% static 'blog/main.css' %}"> 
      <script src="https://kit.fontawesome.com/1e3103cfa4.js" crossorigin="anonymous"></script>
     {% if title%}
         <title> {{ title }} </title>
@@ -98,7 +98,7 @@
                 // If it's a mobile device, prevent the default behavior (navigation)
                 event.preventDefault();
                 // Open the PDF directly
-                window.open("{% static 'blog/Resume11.pdf' %}", '_blank');
+                window.open("{% static 'media/Resume11.pdf' %}", '_blank');
             }
         }
     
@@ -110,11 +110,6 @@
             }
         });
     </script>
-    
-<!-- ... Rest of your HTML content ... -->
 
-    
-    
-    
 </body>
 </html>

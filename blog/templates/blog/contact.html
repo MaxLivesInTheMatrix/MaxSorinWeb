@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+<div style="margin: 0 auto; width: 90%; max-width: 600px; text-align: justify; font-size: 20px; min-height: calc(100vh - 141px);"> <!-- Centering the content with margin auto and setting a width, justifying text, adjusting font size, and extending to the bottom of the page -->
     <h1>Let's Connect!</h1>
 
     <form action="{% url 'send_email' %}" method="post" class="contact-form">
