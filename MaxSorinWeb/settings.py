@@ -135,4 +135,4 @@ EMAIL_HOST_USER = 'MaxSorinEngineering@gmail.com'  # Your email address
 EMAIL_HOST_PASSWORD = 'wyjn dvap eetv kyim'  # Your email password or app-specific password
 EMAIL_USE_TLS = True  # Or use SSL, depending on your email provider
 
-django_on_heroku.setting(locals())
+django_on_heroku.settings(locals())
