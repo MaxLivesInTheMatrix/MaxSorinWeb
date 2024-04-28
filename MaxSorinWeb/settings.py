@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-
+import django_on_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -135,3 +135,4 @@ EMAIL_HOST_USER = 'MaxSorinEngineering@gmail.com'  # Your email address
 EMAIL_HOST_PASSWORD = 'wyjn dvap eetv kyim'  # Your email password or app-specific password
 EMAIL_USE_TLS = True  # Or use SSL, depending on your email provider
 
+django_on_heroku.setting(locals())
