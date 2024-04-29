@@ -488,12 +488,6 @@ figcaption {
     transition: opacity 0.3s;
     text-align: center; /* Center-align the text within the image */
   }
-  .figures {
-    flex-direction: row; /* Revert flex direction to row for larger screens */
-}
-.figure-column {
-    margin: 0 20px; /* Add margin between columns */
-}
 
   .image-container:hover .project-image {
     transform: scale(1.05);
@@ -509,6 +503,26 @@ figcaption {
       width: 90%; /* Adjust width for smaller screens */
   }
 
+  .figure-column {
+    width: 100%; /* Make columns take full width on smaller screens */
+    margin: 0; /* Remove margin to allow stacking */
+  }
+
+  .figures{
+    flex-direction: column;
+  }
+
+  .figure-item{
+    margin-bottom: 20px;
+  }
+  .figure-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 20px; /* Rounded corners */
+    border: 1px solid black; /* Thin black border by default */
+  }
 }
 
 
