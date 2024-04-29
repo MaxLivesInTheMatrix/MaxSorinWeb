@@ -488,6 +488,12 @@ figcaption {
     transition: opacity 0.3s;
     text-align: center; /* Center-align the text within the image */
   }
+  .figures {
+    flex-direction: row; /* Revert flex direction to row for larger screens */
+}
+.figure-column {
+    margin: 0 20px; /* Add margin between columns */
+}
 
   .image-container:hover .project-image {
     transform: scale(1.05);
