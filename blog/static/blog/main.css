@@ -387,6 +387,34 @@ h1 {
   opacity: 1;
 }
 
+.figures {
+  display: flex;
+  justify-content: space-between;
+}
+.figure-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex : 1;
+  margin: 0 20px; /* Add margin between columns */
+}
+
+.figure-item {
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.figure-container {
+  width: 100%; /* Ensures image takes full width of container */
+  border-radius: 20px; /* Adjust the value as needed */
+  overflow: hidden; /* Ensures the border-radius is applied correctly */
+}
+
+figcaption {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px; /* Adjust as needed */
+}
+
 /* This section of code makes sure that smaller screens can view the site nicely*/
 @media (max-width: 768px) {
   .about-me {

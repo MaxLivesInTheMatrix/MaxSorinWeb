@@ -27,7 +27,25 @@
             was to use a "long." I chose the circular buffer moving average over an exponentially weighted moving average due to how clear the operation is
             to see in the code. There are no time constants to deal with. 
         </p>
-        <img src="{{MEDIA_URL}}media/humanContact.gif" alt="human contact" width="560" height="315">
+    </div>
+    <div class = "figures">
+        <div class = "figure-column">
+            <div class = "figure-item">
+                <div class="figure-container">
+                    <img src="{{MEDIA_URL}}/media/humanContact.gif" alt="human contact" style="width: 100%; height: 100%;">
+                </div>
+                    <figcaption> Figure 1: Human contact to the capacitive touch sensor. Notice how the value shoots up to over 1700</figcaption>
+            </div>
+        </div>
+
+        <div class = "figure-column">
+            <div class = "figure-item">
+                <div class="figure-container">
+                    <img src="{{MEDIA_URL}}/media/ramboContact.gif" alt="human contact" style="width: 100%; height: 100%;">
+                </div>
+                    <figcaption> Figure 2: Rambo contact to the capacitive touch sensor. Notice how the value is significantly lower, around 70 compared to over 1700</figcaption>
+            </div>
+        </div>
     </div>
     <!-- TODO: Add  in circuit diagram, photos of data plotter, and embed video of the project working-->
 {% endblock content %}
