@@ -27,6 +27,10 @@
             was to use a "long." I chose the circular buffer moving average over an exponentially weighted moving average due to how clear the operation is
             to see in the code. There are no time constants to deal with. 
         </p>
+        <video controls>
+            <source src="{{MEDIA_URL}}/media/ramboFountain.MOV" type="video/quicktime">
+            Your browser does not support the video tag.
+            </video> 
     </div>
     <div class = "figures">
         <div class = "figure-column">
@@ -46,10 +50,6 @@
                     <figcaption> Figure 2: Rambo contact to the capacitive touch sensor. Notice how the value is significantly lower, around 70 compared to over 1700</figcaption>
             </div>
         </div>
-    </div>
-    
-    <div class = "figures">
-        <img src="{{MEDIA_URL}}/media/ramboFountain.MOV" type="video/quicktime" alt="Rambo working fountain">
-    </div>
+    </div>         
     <!-- TODO: Add  in circuit diagram, photos of data plotter, and embed video of the project working-->
 {% endblock content %}
