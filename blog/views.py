@@ -21,7 +21,7 @@ def contact(request):
     return render(request, 'blog/contact.html', {'title' : 'Contact Information'} )
 
 def arduino(request):
-    return render(request, 'blog/arduino.html', {'title' : 'Digitcal Clutch Slipper'} )
+    return render(request, 'blog/arduino.html', {'title' : 'Digital Clutch Slipper'} )
 def webdev(request):
     return render(request, 'blog/webdev.html', {'title' : 'Creation of This Site'} )
 
