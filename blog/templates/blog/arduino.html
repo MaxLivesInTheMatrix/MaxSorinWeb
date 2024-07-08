@@ -4,9 +4,26 @@
 <div style="margin: 0 auto; width: 90%; max-width: 600px; text-align: justify; font-size: 20px; min-height: calc(100vh - 141px);"> <!-- Centering the content with margin auto and setting a width, justifying text, adjusting font size, and extending to the bottom of the page -->
     <h1 style="text-align: center;">The Digital Clutch Slipper</h1> <!-- Centering the heading -->
     <p>
-        This project is currently in the testing phase, and we are testing June 4th - June 19th on a real
-        drag car. The github repo containing this project has a word document describing this project in detail. 
-        I will update this page as soon as I have sufficient test results. 
+        The digital clutch slipper is an idea I had when I was driving a drag car with a very aggressive
+        and harsh engaging clutch. I wanted a way to be able to slip the clutch the exact same amount every single time. 
+        Conceptually, the idea is simple. I need to add a way to either slow down or stop the movement of the clutch
+        fluid in a controlled matter. I decided to do this using a hydraulic solenoid controlled by an Arduino, and the
+        arduino is controlled via an iOS app. 
     </p>
+    <p>
+        The iOS app is able to connect to the Arduino using BlueTooth Low Energy technology. Once connected, the user
+        is able to input an "Initial Delay" value. This delay is the delay that the Arduino will wait before activating
+        the solenoid. In other words, the Initial Delay value determines the clutch position when the user steps off the
+        clutch. Secondly, there is a "Clutch Hold" value. This clutch hold value is the amount of time the user wants the
+        clutch to slip for. After the sequence is complete, the clutch engages fully and stops slipping. 
+    </p> 
+    <div class="figures" style="width: 50%; margin: 0 auto;">
+        <div class="figure-item" style="width: 100%;">
+            <div class="figure-container" style="width: 100%; max-width: 100%; overflow: hidden;">
+                <img src="{{MEDIA_URL}}/media/clutchApp.PNG" alt="clutch App" style="width: 100%; height: auto;">
+            </div>
+            <figcaption style="font-size: 0.8em; text-align: center;">Figure 1: Visual of the app with clutch hold and clutch delay times</figcaption>
+        </div>
+    </div>    
 </div>
 {% endblock content %}
