@@ -1,16 +1,19 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% block content %}
-    <div class="splash-container">
-        <div class="splash-content">
-            <h1 id="typing-text"></h1>
-            <div class="scroll-down">
-                <a href="#about-section">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
+<div class="splash-container">
+    <div class="splash-content">
+        <h1 id="typing-text"></h1>
+        <!-- LeetCode stats will appear here -->
+        <h2 id="leetcode-stats"></h2>
+        <div class="scroll-down">
+            <a href="#about-section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
     </div>
+</div>
+
 
     <section id="about-section">
         <!-- Content after splash screen -->
@@ -70,6 +73,16 @@
                     </div>
                 </a>
             </div>
+            <div class="project-item">
+                <h3>Overwatch 2 Trigger-Bot</h3>
+                <a href="{% url 'blog-triggerbot' %}">
+                    <div class="image-container">
+                        <img class="project-image" src="{{MEDIA_URL}}media/val_batch2_pred.jpg" alt="YOLOv8 Project">
+                        <div class="image-overlay"></div>
+                        <p class="image-text">A bot that is capable of 80+% accuracy in game, while being completely undetected<br> Python | YOLOv8 | Computer Vision</p>
+                    </div>
+                </a>
+            </div>
             <!-- Add more projects as needed for the right column -->
         </div>
     </div>
@@ -91,22 +104,54 @@
 </script>
 
 <script>
-    const text = "Hi, I'm Max Sorin! Click the arrow or scroll to learn more! ";
-    let index = 0;
-    const speed = 50; // Adjust the typing speed (milliseconds)
+    const username = "MaxSorin"; // LeetCode username
 
-    function typeWriter() {
-        if (index < text.length) {
-            document.getElementById("typing-text").innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, speed);
-        }
+    async function fetchLeetCodeStats() {
+        const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
+        const data = await response.json();
+        return {
+            submissions: data.submissionCalendar ? Object.values(data.submissionCalendar).reduce((a, b) => a + b, 0) : 0,
+            totalSolved: data.totalSolved || 0,
+        };
     }
 
-    // Start the typing animation when the page loads
+    async function displayLeetCodeStats() {
+        const { submissions, totalSolved } = await fetchLeetCodeStats();
+        const statsText = `LeetCode submissions in the past year: ${submissions}\nTotal problems solved: ${totalSolved}`;
+        typeWriter(statsText, "leetcode-stats");
+    }
+
+    function typeWriter(text, elementId) {
+        let index = 0;
+        const speed = 50; // Typing speed (milliseconds)
+
+        function type() {
+            if (index < text.length) {
+                const currentChar = text.charAt(index);
+                if (currentChar === "\n") {
+                    document.getElementById(elementId).innerHTML += "<br>";
+                } else {
+                    document.getElementById(elementId).innerHTML += currentChar;
+                }
+                index++;
+                setTimeout(type, speed);
+            }
+        }
+
+        type();
+    }
+
     window.onload = function () {
-        typeWriter();
+        const introText = "Hi, I'm Max Sorin! Click the arrow or scroll to learn more!";
+        typeWriter(introText, "typing-text");
+        displayLeetCodeStats();
     };
 </script>
+
+<div id="typing-text"></div>
+<div id="leetcode-stats"></div>
+
+
+
 
 {% endblock content %}

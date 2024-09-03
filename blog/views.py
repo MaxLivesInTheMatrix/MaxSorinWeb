@@ -28,6 +28,9 @@ def webdev(request):
 def rambo(request):
     return render(request, 'blog/rambo.html', {'title' : 'Rambo\'s Fountain'})
 
+def triggerbot(request):
+    return render(request, 'blog/triggerbot.html', {'title' : 'Overwatch 2 Trigger Bot'})
+
 def send_email(request):
     if request.method == 'POST':
         name = request.POST.get('name')

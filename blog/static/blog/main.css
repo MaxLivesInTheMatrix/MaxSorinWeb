@@ -186,7 +186,12 @@ h1 {
     color: #09b200;
     /* Add any other styles you want here */
 }
-
+.splash-content h2 {
+  font-size: 2em; /* Change the font size as needed */
+  font-family: 'Courier New', monospace;
+  color: #09b200;
+  /* Add any other styles you want here */
+}
 .scroll-down {
     position: absolute;
     bottom: -200px; /* Adjust as needed */
