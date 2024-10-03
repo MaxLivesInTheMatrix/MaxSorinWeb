@@ -4,16 +4,15 @@
 <div style="margin: 0 auto; width: 90%; max-width: 600px; text-align: justify; font-size: 20px; min-height: calc(100vh - 141px);"> <!-- Centering the content with margin auto and setting a width, justifying text, adjusting font size, and extending to the bottom of the page -->
     <h1 style="text-align: center;">Overwatch 2 Trigger-Bot</h1> <!-- Centering the heading -->
     <p>
-        Disclaimer: There is no public code for this as I do not want to enable everyone to have access to a highly effective, undetectable trigger-bot.
+        TLDR: View the results here and checkout the code on my github!
     </p>
-    <p>
-        TLDR: View the results here!
-    </p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/fzFwPjRoTaM?si=K8u3kcTOPM3dNlkA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        First off, let me define what a trigger-bot is and what it does. A trigger-bot is a computer program that will click on enemies as soon as 
-        the enemies are in the crosshair's position. The aiming is still done by the player. This is different from a tradtional aim-bot that will literally
-        move the mouse onto a target and then click on them. A trigger-bot has a few advantages over a tradtional aim-bot, mostly in simplicity and invisibility 
+    <iframe width="100%" style="max-width: 600px; height: 315px;" src="https://www.youtube.com/embed/fzFwPjRoTaM?si=K8u3kcTOPM3dNlkA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        
+        First off, let me define what a trigger-bot is and what it does. A trigger-bot is a computer program that will click on enemies as soon as 
+        the enemies are in the crosshair's position. The aiming is still done by the player. This is different from a traditional aim-bot that will literally
+        move the mouse onto a target and then click on them. A trigger-bot has a few advantages over a traditional aim-bot, mostly in simplicity and invisibility 
         to anti-cheat. Why would I create something like this? In all honesty, I kept getting destroyed in game, and I knew I didn't want to spend the thousands of
-        hours practicing when I knew I could build something that would be extremely effective. 
+        hours practicing when I knew I could build something that would be extremely effective. I also saw an opportunity to apply computer vision in a real-world scenario, learning a lot 
+        and having a blast along the way.
 
     </p> 
     <p>
@@ -63,7 +62,7 @@
     </p>      <!-- End Of Table of contents-->
     <p>
         Starting off with how I decided to choose a vision model over its competitors. I did a lot of research on different vision models and while 
-        each of them are impressive in their own fasion, YOLO stood out to me. YOLO had, by far, the simplest approach to training a model, and they had 
+        each of them are impressive in their own fashion, YOLO stood out to me. YOLO had, by far, the simplest approach to training a model, and they had 
         different options regarding accuracy and speed. I was mainly looking for the fastest inferring model because latency was such a crucial factor 
         for having high accuracy (in game) and fast response times. After doing a bunch of research, it seemed to me that YOLO, and specifically YOLOv8 Nano, had the
         fastest real time image recognition of them all. 
@@ -71,28 +70,44 @@
     <p>
         Now on to data collection... I needed data to train this model on. Unfortunately, there was no database of Overwatch gameplay to consult, so I needed to collect the data myself.
         I decided on writing my own data collection script. The way this worked is that, in theory, the only time you click, is when you are aiming at an enemy. So I wrote
-        a script that would take a screenshot and save it into a folder everytime I clicked in game. The first iteration of this script generated a ton of issues for me. This is 
+        a script that would take a screenshot and save it into a folder every time I clicked in game. The first iteration of this script generated a ton of issues for me. This is 
         where I first learned about python threading. The issue with my first script was that sometimes I would try to take and save another screenshot before the previous
-        screenshot was done saving. This would lead to corrupted screenshots that were worthless. To solve this, I made the screenshot saving take place in a seperate thread so as
+        screenshot was done saving. This would lead to corrupted screenshots that were worthless. To solve this, I made the screenshot saving take place in a separate thread so as
         to not have any corrupted images. The first model I trained on only 400 images, but that was not enough data to make the model inference correctly all the time. The final
         model was trained on around 1400 images that I took and annotated using CVAT.ai
     </p>    <!-- End Of Part 2-->
     <p>
         CVAT.ai is an online computer vision annotation tool. I uploaded all 1400 images to their service and then proceeded to annotate every single one of them. I needed to
-        keep this model fast and simple, so I only made one annotation: "Enemy" After annoting each image, CVAT has a very simple export which let me export all of the annotated
-        data in a formate that YOLOv8 could be trained on.  
+        keep this model fast and simple, so I only made one annotation: "Enemy" After annotating each image, CVAT has a very simple export which let me export all of the annotated
+        data in a format that YOLOv8 could be trained on.  
     </p>    <!-- End Of Part 3-->
     <p>
         Finally we get to train the model. My current hardware is a GTX1080TI from 2017. The GPU is old, but still exceptionally powerful. When I first started training, 
         I really had no idea of what version of YOLO to use. I had no metrics to know how fast or slow YOLOv8 large was compared to medium, small, or even nano. The first model I
         trained was on YOLOv8 medium. I trained it on 300 epochs and honestly achieved some pretty cool results. The model had over 80% confidence when tested on the validation set.
         This was the first time I really got to see the model in action too. How did I make sure to avoid overfitting? Well, at the time of making the bot, Overwatch had just released
-        a new character that I had no data on. The model was still able to succesfully identify her as an enemy with no prior data. Luckily, most of the character in Overwatch are 
+        a new character that I had no data on. The model was still able to successfully identify her as an enemy with no prior data. Luckily, most of the character in Overwatch are 
         humanoid shaped, so the model is quite good at detecting them. I also got to test it in game for the first time... And it was slowww. I'll get back to optimization later in
         the writeup, but the first iteration only ran at around 16 frames per second. Far too slow to be effective. 
     </p>    <!-- End Of Part 4-->
     <p>
-        This is the fun part. Creating the script, using the output of the model, and tons of testing. To be continued...
+        This is the fun part. Creating the script, using the output of the model, and tons of testing. With the model in place, the next step was integrating it into the triggerbot. 
+        The script captures the screen using mss, processes each frame with the YOLOv8 model, and checks if an enemy is within the crosshair's region. If an enemy is detected with a 
+        confidence level over 20%, the bot simulates a mouse click using Windows API. The clicking logic is handled in a separate thread to ensure smooth performance and low latency.
     </p>    <!-- End Of Part 5-->
+    <p>Optimization was crucial to make the triggerbot effective in real time. I achieved significant speed improvements by:
+        <ul>
+            <li><strong>Switching to TensorRT (.engine format)</strong>: This halved the model’s inference time and boosted FPS to over 70, allowing for smooth gameplay.</li>
+            <li><strong>Multithreading</strong>: Used throughout the project to handle tasks like screen capturing and mouse clicks without blocking the main thread.</li>
+            <li><strong>Latency reduction</strong>: Every millisecond counts, so I tweaked the code to minimize delays in detection and response time.</li>
+        </ul>
+    </p>
+    <p>
+        In the end, I am extremely happy with the results of the triggerbot project. From starting with simple ideas and overcoming various challenges in data collection, 
+        model training, and optimization, I was able to build a working bot that significantly improved my in-game performance. 
+        By leveraging YOLOv8, TensorRT, and multithreading, I managed to create a tool that runs efficiently in real time, all while maintaining accuracy and smoothness.
+        It was a great learning experience, and I’m excited to apply these skills to future projects. 
+
+    </p>
 </div>
 {% endblock content %}
