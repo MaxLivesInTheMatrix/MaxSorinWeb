@@ -243,42 +243,6 @@ h1 {
     margin-left: 100px;
 }
 
-
-
-
-.contact-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-.contact-form input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
 .projects {
   display: flex;
   justify-content: space-between;
